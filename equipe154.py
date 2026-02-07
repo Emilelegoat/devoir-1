@@ -76,3 +76,15 @@ plt.title("Figure 2 : représentation graphique de f sur [0, 1]")
 plt.xlabel("x")
 plt.ylabel(r"$f(x)$")
 plt.show()
+
+# numero 2 C
+S = SuiteSn(19)
+n = np.arange(0, 20)
+
+# graphique
+plt.plot(n, S, color="m",  marker="o", markersize="3")
+plt.title(r"Graphique des valeurs de $S_n$ en fonction de n ∈ [0, 19] ")
+plt.xlabel("n")
+plt.ylabel(r"$S_n$")
+plt.xticks(n)
+plt.show()
