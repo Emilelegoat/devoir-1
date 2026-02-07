@@ -70,23 +70,26 @@ def f(x):
 x = np.linspace(0, 1, 101)
 
 # figure 2 graphique de la fonction f(z) evaluée en x
-plt.plot(x, f(x), linewidth=2, color="green")
+plt.plot(x, f(x), linewidth=2, color="green", label=r"$f(x) = -\frac{x^2}{2} + e^x + \sin(x)$")
 plt.grid(True)
 plt.title("Figure 2 : représentation graphique de f sur [0, 1]")
 plt.xlabel("x")
 plt.ylabel(r"$f(x)$")
+plt.legend()
 plt.show()
 
 # numero 2 C
 S = SuiteSn(19)
 n = np.arange(0, 20)
 
-# graphique
-plt.plot(n, S, color="m",  marker="o", markersize="3")
+# graphique figure 3
+plt.plot(n, S, color="m",  marker="o", markersize="3", label=r"$S_n = e - nS_{n-1}$")
+plt.grid(True)
 plt.title(r"Figure 3 : Graphique des valeurs de $S_n$ en fonction de n ∈ [0, 19] ")
 plt.xlabel("valeurs de n")
 plt.ylabel(r"$S_n$")
 plt.xticks(n)
+plt.legend()
 plt.show()
 
 # Numéro 3 
@@ -103,10 +106,12 @@ valeur_D = (f(0 + valeur_h) - f(0)) / valeur_h
 erreurs = np.abs(f_prime(0) - valeur_D)
 
 # graphique 
-plt.loglog(valeur_h, erreurs, color="darkorange",marker="o", markersize="4", )
+plt.loglog(valeur_h, erreurs, color="darkorange",marker="o", markersize="4", label=r"$|f'(0) - D(0, h)|$" )
 plt.xticks(valeur_h)
+plt.grid(True)
 plt.gca().invert_xaxis()
 plt.xlabel("valeurs de h")
 plt.ylabel(r"erreurs $|f'(0) - D(0, h)|$")
 plt.title(r"Figure 4 : Erreur $|f'(0) - D(0,h)|$ en fonction de $h$")
+plt.legend()
 plt.show()
