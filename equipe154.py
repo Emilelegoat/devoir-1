@@ -61,9 +61,9 @@ for i in range(N.shape[0]):
 plt.title("Figure 1 : Matrice N")
 plt.show()
 
-# fonction f(z)
-def f(z):
-    fonction = -z**2 / 2 + np.exp(z) + np.sin(z)
+# fonction f(x)
+def f(x):
+    fonction = -x**2 / 2 + np.exp(x) + np.sin(x)
     return fonction
 
 # vecteur X 
@@ -83,8 +83,30 @@ n = np.arange(0, 20)
 
 # graphique
 plt.plot(n, S, color="m",  marker="o", markersize="3")
-plt.title(r"Graphique des valeurs de $S_n$ en fonction de n ∈ [0, 19] ")
-plt.xlabel("n")
+plt.title(r"Figure 3 : Graphique des valeurs de $S_n$ en fonction de n ∈ [0, 19] ")
+plt.xlabel("valeurs de n")
 plt.ylabel(r"$S_n$")
 plt.xticks(n)
+plt.show()
+
+# Numéro 3 
+
+# dérivée
+def f_prime(x):
+    f_prime = -x + np.exp(x) + np.cos(x)
+    return f_prime
+
+valeur_h = 10.0 ** -np.arange(1, 13)
+
+valeur_D = (f(0 + valeur_h) - f(0)) / valeur_h
+
+erreurs = np.abs(f_prime(0) - valeur_D)
+
+# graphique 
+plt.loglog(valeur_h, erreurs, color="darkorange",marker="o", markersize="4", )
+plt.xticks(valeur_h)
+plt.gca().invert_xaxis()
+plt.xlabel("valeurs de h")
+plt.ylabel(r"erreurs $|f'(0) - D(0, h)|$")
+plt.title(r"Figure 4 : Erreur $|f'(0) - D(0,h)|$ en fonction de $h$")
 plt.show()
